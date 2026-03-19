@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import en from '../i18n/en.json';
+import zh from '../i18n/zh.json';
+
+const lang = Astro.currentLocale || 'en';
+const t = lang === 'zh' ? zh : en;
+
+const classes = [
+  {
+    id: 'defender',
+    name: t.classes.defender.name,
+    description: t.classes.defender.description,
+    role: t.classes.defender.role,
+    image: '/defender-class.jpg',
+    color: 'from-blue-500 to-cyan-500',
+    bgColor: 'bg-blue-500/10',
+    borderColor: 'border-blue-500/30',
+    stats: [
+      { label: t.classes.defender.stats.hp, value: 95, color: 'bg-green-500' },
+      { label: t.classes.defender.stats.defense, value: 90, color: 'bg-blue-500' },
+      { label: t.classes.defender.stats.attack, value: 50, color: 'bg-red-500' },
+      { label: t.classes.defender.stats.speed, value: 40, color: 'bg-yellow-500' },
+    ],
+    skills: [
+      { name: t.classes.defender.skills.shieldBash.name, desc: t.classes.defender.skills.shieldBash.desc },
+      { name: t.classes.defender.skills.ironWill.name, desc: t.classes.defender.skills.ironWill.desc },
+      { name: t.classes.defender.skills.taunt.name, desc: t.classes.defender.skills.taunt.desc },
+    ],
+    playstyle: t.classes.defender.playstyle,
+  },
+  {
+    id: 'archer',
+    name: t.classes.archer.name,
+    description: t.classes.archer.description,
+    role: t.classes.archer.role,
+    image: '/archer-class.jpg',
+    color: 'from-green-500 to-emerald-500',
+    bgColor: 'bg-green-500/10',
+    borderColor: 'border-green-500/30',
+    stats: [
+      { label: t.classes.archer.stats.hp, value: 45, color: 'bg-green-500' },
+      { label: t.classes.archer.stats.defense, value: 30, color: 'bg-blue-500' },
+      { label: t.classes.archer.stats.attack, value: 85, color: 'bg-red-500' },
+      { label: t.classes.archer.stats.speed, value: 95, color: 'bg-yellow-500' },
+    ],
+    skills: [
+      { name: t.classes.archer.skills.multishot.name, desc: t.classes.archer.skills.multishot.desc },
+      { name: t.classes.archer.skills.piercing.name, desc: t.classes.archer.skills.piercing.desc },
+      { name: t.classes.archer.skills.crit.name, desc: t.classes.archer.skills.crit.desc },
+    ],
+    playstyle: t.classes.archer.playstyle,
+  },
+  {
+    id: 'healer',
+    name: t.classes.healer.name,
+    description: t.classes.healer.description,
+    role: t.classes.healer.role,
+    image: '/healer-class.jpg',
+    color: 'from-yellow-500 to-orange-500',
+    bgColor: 'bg-yellow-500/10',
+    borderColor: 'border-yellow-500/30',
+    stats: [
+      { label: t.classes.healer.stats.hp, value: 60, color: 'bg-green-500' },
+      { label: t.classes.healer.stats.defense, value: 45, color: 'bg-blue-500' },
+      { label: t.classes.healer.stats.attack, value: 40, color: 'bg-red-500' },
+      { label: t.classes.healer.stats.heal, value: 95, color: 'bg-yellow-500' },
+    ],
+    skills: [
+      { name: t.classes.healer.skills.groupHeal.name, desc: t.classes.healer.skills.groupHeal.desc },
+      { name: t.classes.healer.skills.shield.name, desc: t.classes.healer.skills.shield.desc },
+      { name: t.classes.healer.skills.haste.name, desc: t.classes.healer.skills.haste.desc },
+    ],
+    playstyle: t.classes.healer.playstyle,
+  },
+];
+---
+
+<Layout 
+  title={`${t.classes.title} | ${t.site.title}`}
+  description={t.classes.subtitle}
+>
+  <Navigation t={t} lang={lang} />
+  
+  <main class="pt-16">
+    <section class="py-24 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">{t.classes.title}</span>
+          </h1>
+          <p class="text-slate-400 text-lg max-w-2xl mx-auto">{t.classes.subtitle}</p>
+        </div>
+
+        <!-- Classes Grid -->
+        <div class="space-y-24">
+          {classes.map((cls, index) => (
+            <div class={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <!-- Image -->
+              <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div class={`absolute inset-0 bg-gradient-to-br ${cls.color} rounded-2xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity`} />
+                <div class="relative overflow-hidden rounded-2xl border-2 border-white/10">
+                  <img src={cls.image} alt={cls.name} class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class={`absolute inset-0 bg-gradient-to-t ${cls.color} opacity-20`} />
+                </div>
+              </div>
+
+              <!-- Info -->
+              <div class={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div>
+                  <div class="flex items-center gap-3 mb-2">
+                    <h2 class={`text-3xl font-bold bg-gradient-to-r ${cls.color} bg-clip-text text-transparent`}>
+                      {cls.name}
+                    </h2>
+                    <span class={`px-3 py-1 rounded-full text-xs font-medium ${cls.bgColor} border ${cls.borderColor}`}>
+                      {cls.role}
+                    </span>
+                  </div>
+                  <p class="text-slate-400">{cls.description}</p>
+                </div>
+
+                <!-- Stats -->
+                <div class="space-y-3">
+                  <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider">Stats</h3>
+                  {cls.stats.map((stat) => (
+                    <div class="flex items-center gap-4">
+                      <span class="text-sm text-slate-400 w-24">{stat.label}</span>
+                      <div class="flex-1 h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div class={`h-full ${stat.color} rounded-full`} style={`width: ${stat.value}%`} />
+                      </div>
+                      <span class="text-sm font-medium text-slate-300 w-10">{stat.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Skills -->
+                <div class="space-y-3">
+                  <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider">Core Skills</h3>
+                  <div class="grid gap-3">
+                    {cls.skills.map((skill) => (
+                      <div class={`p-3 rounded-lg ${cls.bgColor} border ${cls.borderColor}`}>
+                        <div class="font-medium text-slate-200">{skill.name}</div>
+                        <div class="text-sm text-slate-400">{skill.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Playstyle -->
+                <div class={`p-4 rounded-lg ${cls.bgColor} border ${cls.borderColor}`}>
+                  <h3 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-2">Playstyle</h3>
+                  <p class="text-sm text-slate-400">{cls.playstyle}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer t={t} />
+</Layout>

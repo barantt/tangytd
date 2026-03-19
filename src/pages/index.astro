@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import en from '../i18n/en.json';
+import zh from '../i18n/zh.json';
+
+const lang = Astro.currentLocale || 'en';
+const t = lang === 'zh' ? zh : en;
+---
+
+<Layout 
+  title={`${t.site.title} | ${t.hero.title}`}
+  description={t.site.description}
+  keywords={t.site.keywords}
+>
+  <Navigation t={t} lang={lang} />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url(/hero-banner.jpg)">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950"></div>
+      </div>
+
+      <!-- Animated Particles -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            class="absolute w-1 h-1 bg-purple-400/60 rounded-full animate-pulse"
+            style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${Math.random() * 3}s; animation-duration: ${2 + Math.random() * 2}s`}
+          />
+        ))}
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-sm font-medium mb-8">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+          <span>{t.hero.badge}</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            {t.hero.title}
+          </span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-slate-300 mb-4">{t.hero.subtitle}</p>
+        <p class="text-slate-400 max-w-2xl mx-auto mb-12">{t.hero.description}</p>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 max-w-lg mx-auto mb-12">
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-bold text-purple-400 mb-1">3</div>
+            <div class="text-sm text-slate-400">{t.hero.stats.classes}</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-bold text-pink-400 mb-1">100+</div>
+            <div class="text-sm text-slate-400">{t.hero.stats.items}</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-bold text-orange-400 mb-1">300+</div>
+            <div class="text-sm text-slate-400">{t.hero.stats.nodes}</div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`/${lang === 'zh' ? 'zh/' : ''}classes`}
+            class="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 hover:scale-105 transition-all duration-300"
+          >
+            <span class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              {t.hero.cta.classes}
+            </span>
+          </a>
+          <a
+            href={`/${lang === 'zh' ? 'zh/' : ''}guide`}
+            class="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-semibold text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+          >
+            <span class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              {t.hero.cta.guide}
+            </span>
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes Preview -->
+    <section class="py-24 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">{t.classes.title}</span>
+          </h2>
+          <p class="text-slate-400 text-lg max-w-2xl mx-auto">{t.classes.subtitle}</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Defender -->
+          <a href={`/${lang === 'zh' ? 'zh/' : ''}classes`} class="group">
+            <div class="relative overflow-hidden rounded-2xl border-2 border-blue-500/30 bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300">
+              <img src="/defender-class.jpg" alt="Defender" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white">{t.classes.defender.name}</h3>
+                    <span class="text-xs text-blue-400">{t.classes.defender.role}</span>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-400 line-clamp-2">{t.classes.defender.description}</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Archer -->
+          <a href={`/${lang === 'zh' ? 'zh/' : ''}classes`} class="group">
+            <div class="relative overflow-hidden rounded-2xl border-2 border-green-500/30 bg-green-500/10 hover:border-green-500/50 transition-all duration-300">
+              <img src="/archer-class.jpg" alt="Archer" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white">{t.classes.archer.name}</h3>
+                    <span class="text-xs text-green-400">{t.classes.archer.role}</span>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-400 line-clamp-2">{t.classes.archer.description}</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Healer -->
+          <a href={`/${lang === 'zh' ? 'zh/' : ''}classes`} class="group">
+            <div class="relative overflow-hidden rounded-2xl border-2 border-yellow-500/30 bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300">
+              <img src="/healer-class.jpg" alt="Healer" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white">{t.classes.healer.name}</h3>
+                    <span class="text-xs text-yellow-400">{t.classes.healer.role}</span>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-400 line-clamp-2">{t.classes.healer.description}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer t={t} />
+</Layout>

@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import zh from '../../i18n/zh.json';
+
+const t = zh;
+
+const bosses = t.bosses.list;
+---
+
+<Layout 
+  title={`${t.bosses.title} | ${t.site.title}`}
+  description={t.bosses.subtitle}
+>
+  <Navigation t={t} lang="zh" />
+  
+  <main class="pt-16">
+    <section class="py-24 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">{t.bosses.title}</span>
+          </h1>
+          <p class="text-slate-400 text-lg max-w-2xl mx-auto">{t.bosses.subtitle}</p>
+        </div>
+
+        <!-- Bosses Grid -->
+        <div class="space-y-8">
+          {bosses.map((boss) => (
+            <div class={`p-8 rounded-2xl ${boss.difficulty === '简单' ? 'bg-green-500/10 border-green-500/30' : boss.difficulty === '中等' ? 'bg-yellow-500/10 border-yellow-500/30' : boss.difficulty === '困难' ? 'bg-orange-500/10 border-orange-500/30' : boss.difficulty === '极难' ? 'bg-purple-500/10 border-purple-500/30' : 'bg-red-500/10 border-red-500/30'} border-2 backdrop-blur-sm`}>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                  <div class={`w-12 h-12 rounded-lg flex items-center justify-center ${boss.difficulty === '简单' ? 'bg-green-500/20' : boss.difficulty === '中等' ? 'bg-yellow-500/20' : boss.difficulty === '困难' ? 'bg-orange-500/20' : boss.difficulty === '极难' ? 'bg-purple-500/20' : 'bg-red-500/20'}`}>
+                    <svg class={`w-6 h-6 ${boss.difficulty === '简单' ? 'text-green-400' : boss.difficulty === '中等' ? 'text-yellow-400' : boss.difficulty === '困难' ? 'text-orange-400' : boss.difficulty === '极难' ? 'text-purple-400' : 'text-red-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="text-2xl font-bold text-white">{boss.name}</h2>
+                    <span class={`text-sm ${boss.difficulty === '简单' ? 'text-green-400' : boss.difficulty === '中等' ? 'text-yellow-400' : boss.difficulty === '困难' ? 'text-orange-400' : boss.difficulty === '极难' ? 'text-purple-400' : 'text-red-400'}`}>{boss.difficulty}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Left: Stats & Special -->
+                <div class="space-y-6">
+                  <!-- Stats -->
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="p-4 rounded-lg bg-slate-900/50">
+                      <div class="flex items-center gap-2 text-slate-400 text-sm mb-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        {t.bosses.stats.hp}
+                      </div>
+                      <div class="text-xl font-bold text-white">{boss.hp}</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-slate-900/50">
+                      <div class="flex items-center gap-2 text-slate-400 text-sm mb-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        {t.bosses.stats.attack}
+                      </div>
+                      <div class="text-xl font-bold text-white">{boss.attack}</div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-slate-900/50">
+                      <div class="flex items-center gap-2 text-slate-400 text-sm mb-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        {t.bosses.stats.special}
+                      </div>
+                      <div class="text-sm font-medium text-white">{boss.special.split('：')[0]}</div>
+                    </div>
+                  </div>
+
+                  <!-- Special Ability -->
+                  <div class="p-4 rounded-lg bg-slate-900/50 border border-white/10">
+                    <div class="flex items-center gap-2 text-yellow-400 mb-2">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                      </svg>
+                      <span class="font-semibold">{t.bosses.stats.special}</span>
+                    </div>
+                    <p class="text-slate-300">{boss.special}</p>
+                  </div>
+
+                  <!-- Weaknesses -->
+                  <div>
+                    <div class="flex items-center gap-2 text-slate-400 text-sm mb-3">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span>{t.bosses.weaknesses}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                      {boss.weaknesses.map((weakness) => (
+                        <span class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-sm border border-red-500/30">
+                          {weakness}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Strategy & Rewards -->
+                <div class="space-y-6">
+                  <!-- Strategy -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                      </svg>
+                      {t.bosses.strategy}
+                    </h3>
+                    <div class="space-y-3">
+                      {boss.strategy.map((tip) => (
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-900/50">
+                          <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                          </svg>
+                          <span class="text-slate-300">{tip}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <!-- Rewards -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                      {t.bosses.rewards}
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                      {boss.rewards.map((reward) => (
+                        <span class="px-4 py-2 rounded-lg bg-yellow-500/10 text-yellow-400 text-sm border border-yellow-500/30">
+                          {reward}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer t={t} />
+</Layout>

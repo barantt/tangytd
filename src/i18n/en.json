@@ -1,0 +1,504 @@
+{
+  "site": {
+    "title": "Tangy TD Guide",
+    "description": "Comprehensive Tangy TD guide with detailed class builds, skill tree recommendations, item crafting recipes, and boss strategies. Master the hero tower defense game!",
+    "keywords": "Tangy TD, tower defense guide, game wiki, class builds, skill tree, item crafting, boss strategy, defender, archer, healer"
+  },
+  "nav": {
+    "home": "Home",
+    "classes": "Classes",
+    "skillTree": "Skill Tree",
+    "items": "Items",
+    "bosses": "Bosses",
+    "guide": "Guide"
+  },
+  "hero": {
+    "badge": "Very Positive on Steam",
+    "title": "Tangy TD",
+    "subtitle": "Hero Tower Defense · Class Based · Item Combining",
+    "description": "Play as witch Tangy, deploy class-based towers, equip and combine over 100 items, customize your builds with a giant skill tree, and defend against hordes of enemies!",
+    "stats": {
+      "classes": "Unique Classes",
+      "items": "Combinable Items",
+      "nodes": "Skill Nodes"
+    },
+    "cta": {
+      "classes": "View Classes",
+      "guide": "Beginner Guide"
+    }
+  },
+  "classes": {
+    "title": "Classes",
+    "subtitle": "Three unique classes, each with its own massive skill tree",
+    "defender": {
+      "name": "Defender",
+      "description": "Sturdy towers designed to hold the line and absorb enemy attacks. Essential for protecting your core and other towers.",
+      "role": "Tank",
+      "stats": {
+        "hp": "HP",
+        "defense": "Defense",
+        "attack": "Attack",
+        "speed": "Attack Speed"
+      },
+      "skills": {
+        "shieldBash": {
+          "name": "Shield Bash",
+          "desc": "Bash enemies with shield, dealing damage and stunning"
+        },
+        "ironWill": {
+          "name": "Iron Will",
+          "desc": "Greatly increase defense for 10 seconds"
+        },
+        "taunt": {
+          "name": "Taunt",
+          "desc": "Force nearby enemies to attack you"
+        }
+      },
+      "playstyle": "Place at the front of the path to attract enemies. Works best with Healer support. Skill tree focuses on survival and crowd control."
+    },
+    "archer": {
+      "name": "Archer",
+      "description": "High damage, long-range towers that pick off enemies from a distance. The primary damage dealers of your defense.",
+      "role": "DPS",
+      "stats": {
+        "hp": "HP",
+        "defense": "Defense",
+        "attack": "Attack",
+        "speed": "Attack Speed"
+      },
+      "skills": {
+        "multishot": {
+          "name": "Multishot",
+          "desc": "Fire multiple arrows at once, hitting several targets"
+        },
+        "piercing": {
+          "name": "Piercing Arrow",
+          "desc": "Arrow pierces through enemies, damaging all in path"
+        },
+        "crit": {
+          "name": "Critical Strike",
+          "desc": "Next attack is guaranteed critical, dealing massive damage"
+        }
+      },
+      "playstyle": "Place in safe positions behind Defenders. Skill tree can specialize in single-target burst or AoE clearing."
+    },
+    "healer": {
+      "name": "Healer",
+      "description": "Support towers that keep your defenses alive with healing and buffs. Essential for sustained battles.",
+      "role": "Support",
+      "stats": {
+        "hp": "HP",
+        "defense": "Defense",
+        "attack": "Attack",
+        "heal": "Healing"
+      },
+      "skills": {
+        "groupHeal": {
+          "name": "Group Heal",
+          "desc": "Restore HP to all nearby allies"
+        },
+        "shield": {
+          "name": "Shield Blessing",
+          "desc": "Grant allies a shield that absorbs damage"
+        },
+        "haste": {
+          "name": "Attack Haste",
+          "desc": "Increase allies' attack speed"
+        }
+      },
+      "playstyle": "Position to cover multiple allies. Prioritize healing frontline Defenders. Skill tree enhances healing or buff effects."
+    }
+  },
+  "skillTree": {
+    "title": "Skill Tree",
+    "subtitle": "Over 300 nodes to customize your builds",
+    "tips": {
+      "title": "Skill Tree Tips",
+      "list": [
+        "Skill points are earned by defeating enemies",
+        "Focus on one branch first, don't spread too thin",
+        "Some powerful nodes require prerequisites",
+        "You can reset skill points anytime",
+        "Match skills with your equipment for maximum effect"
+      ]
+    },
+    "defenderTree": {
+      "name": "Defender Skill Tree",
+      "description": "Enhance defense and survival, unlock powerful crowd control",
+      "branches": [
+        {
+          "name": "Iron Body",
+          "description": "Greatly increase HP and armor",
+          "nodes": [
+            { "name": "Toughness", "effect": "HP +15%" },
+            { "name": "Heavy Armor", "effect": "Armor +20%" },
+            { "name": "Undying", "effect": "Survive fatal damage once (60s cooldown)" }
+          ]
+        },
+        {
+          "name": "Guardian Power",
+          "description": "Enhance shield skills and team protection",
+          "nodes": [
+            { "name": "Shield Wall", "effect": "Shield skill duration +50%" },
+            { "name": "Guardian Aura", "effect": "Nearby allies take 10% less damage" },
+            { "name": "Absolute Defense", "effect": "Immune to control during skill" }
+          ]
+        },
+        {
+          "name": "Counter Storm",
+          "description": "Convert defense into offense",
+          "nodes": [
+            { "name": "Thorn Reflect", "effect": "Reflect 20% damage taken" },
+            { "name": "Shield Bash+", "effect": "Shield Bash damage +100%" },
+            { "name": "Shockwave", "effect": "Shield Bash adds AoE stun" }
+          ]
+        }
+      ]
+    },
+    "archerTree": {
+      "name": "Archer Skill Tree",
+      "description": "Boost damage output, unlock various archery techniques",
+      "branches": [
+        {
+          "name": "Precision Shot",
+          "description": "Enhance single-target burst and crit",
+          "nodes": [
+            { "name": "Eagle Eye", "effect": "Crit rate +15%" },
+            { "name": "Fatal Blow", "effect": "Crit damage +50%" },
+            { "name": "Weakness Insight", "effect": "20% chance for double damage" }
+          ]
+        },
+        {
+          "name": "Arrow Storm",
+          "description": "Enhance AoE clearing ability",
+          "nodes": [
+            { "name": "Multishot+", "effect": "Multishot arrows +2" },
+            { "name": "Piercing+", "effect": "Piercing Arrow hits 5 targets" },
+            { "name": "Explosive Arrow", "effect": "Arrows cause small explosion on hit" }
+          ]
+        },
+        {
+          "name": "Ranger Path",
+          "description": "Improve mobility and survival",
+          "nodes": [
+            { "name": "Swiftness", "effect": "Attack speed +20%" },
+            { "name": "Evasion", "effect": "15% chance to dodge attacks" },
+            { "name": "Backflip Shot", "effect": "Unlock backflip skill that fires an arrow" }
+          ]
+        }
+      ]
+    },
+    "healerTree": {
+      "name": "Healer Skill Tree",
+      "description": "Enhance healing and support abilities",
+      "branches": [
+        {
+          "name": "Divine Heal",
+          "description": "Boost healing amount and efficiency",
+          "nodes": [
+            { "name": "Heal Boost", "effect": "Healing +25%" },
+            { "name": "Heal Wave", "effect": "Healing jumps to nearby allies" },
+            { "name": "Revival", "effect": "Crit healing restores double HP" }
+          ]
+        },
+        {
+          "name": "Guardian Blessing",
+          "description": "Enhance shields and buffs",
+          "nodes": [
+            { "name": "Shield Boost", "effect": "Shield value +30%" },
+            { "name": "Blessing Aura", "effect": "Nearby allies +10% attack" },
+            { "name": "Divine Shelter", "effect": "Restore 10% HP when shield breaks" }
+          ]
+        },
+        {
+          "name": "Purification Light",
+          "description": "Gain control and dispel abilities",
+          "nodes": [
+            { "name": "Cleanse", "effect": "Healing removes debuffs" },
+            { "name": "Holy Shock", "effect": "Damage and stun enemies" },
+            { "name": "Resurrect", "effect": "Revive one fallen ally (120s cooldown)" }
+          ]
+        }
+      ]
+    }
+  },
+  "items": {
+    "title": "Item System",
+    "subtitle": "Over 100 items to combine and discover powerful recipes",
+    "categories": {
+      "weapons": "Weapons",
+      "armor": "Armor",
+      "accessories": "Accessories",
+      "special": "Special"
+    },
+    "combos": {
+      "title": "Popular Recipes",
+      "ingredients": "Ingredients",
+      "result": "Result"
+    },
+    "rare": {
+      "title": "Rare Items",
+      "list": [
+        {
+          "name": "Hourglass of Time",
+          "rarity": "Legendary",
+          "desc": "All skill cooldowns -30%"
+        },
+        {
+          "name": "Vampire Fang",
+          "rarity": "Epic",
+          "desc": "15% of damage dealt converted to HP"
+        },
+        {
+          "name": "Windwalker Boots",
+          "rarity": "Rare",
+          "desc": "Move speed +50%, can pass through enemies"
+        },
+        {
+          "name": "Tome of Wisdom",
+          "rarity": "Epic",
+          "desc": "Skill effects +25%, mana cost -20%"
+        }
+      ]
+    },
+    "recipes": [
+      {
+        "name": "Flame Blade",
+        "desc": "Attacks deal fire damage, burning enemies over time",
+        "result": {
+          "name": "Flame Blade",
+          "rarity": "Epic",
+          "stats": ["Attack +50", "Fire damage +30%", "Burn lasts 5s"]
+        }
+      },
+      {
+        "name": "Life Amulet",
+        "desc": "Greatly increase HP and auto-regenerate",
+        "result": {
+          "name": "Life Amulet",
+          "rarity": "Rare",
+          "stats": ["HP +200", "Regen +5/s", "Healing received +20%"]
+        }
+      },
+      {
+        "name": "Thunder Armor",
+        "desc": "Release lightning counter when hit",
+        "result": {
+          "name": "Thunder Armor",
+          "rarity": "Epic",
+          "stats": ["Armor +80", "Lightning counter +50", "Paralyze chance 15%"]
+        }
+      },
+      {
+        "name": "Crit Ring",
+        "desc": "Greatly increase crit rate and crit damage",
+        "result": {
+          "name": "Crit Ring",
+          "rarity": "Legendary",
+          "stats": ["Crit rate +25%", "Crit damage +75%", "Attack speed +10%"]
+        }
+      }
+    ]
+  },
+  "bosses": {
+    "title": "Boss Guide",
+    "subtitle": "6 unique bosses, each with unique mechanics",
+    "stats": {
+      "hp": "HP",
+      "attack": "Attack",
+      "special": "Special"
+    },
+    "weaknesses": "Weaknesses",
+    "strategy": "Strategy",
+    "rewards": "Rewards",
+    "list": [
+      {
+        "name": "Rat King",
+        "difficulty": "Easy",
+        "hp": "5,000",
+        "attack": "Medium",
+        "special": "Summon Swarm: Periodically summons 3-5 small rats",
+        "weaknesses": ["Fire damage", "AoE attacks"],
+        "strategy": [
+          "Prioritize clearing summoned rats to avoid being surrounded",
+          "Use AoE skills to hit both boss and minions",
+          "Defender in front to draw aggro, DPS from safe distance"
+        ],
+        "rewards": ["Skill Points x50", "Basic Equipment Box", "Unlock next level"]
+      },
+      {
+        "name": "Shadow Assassin",
+        "difficulty": "Medium",
+        "hp": "8,000",
+        "attack": "High",
+        "special": "Shadow Step: Teleports behind farthest target to attack",
+        "weaknesses": ["Crowd control", "High armor"],
+        "strategy": [
+          "Keep Defender taunt active at all times",
+          "Healer must watch HP of targeted units",
+          "Use stun skills to interrupt Shadow Step"
+        ],
+        "rewards": ["Skill Points x80", "Rare Equipment Box", "Unlock Shadow Skill Tree"]
+      },
+      {
+        "name": "Plague Bringer",
+        "difficulty": "Hard",
+        "hp": "15,000",
+        "attack": "Medium",
+        "special": "Plague Burst: Releases poison cloud, continuous damage in area",
+        "weaknesses": ["Healing", "Cleanse skills"],
+        "strategy": [
+          "Healer must cleanse poison effect quickly",
+          "Spread out to avoid multiple units in poison cloud",
+          "Bring anti-poison equipment or potions"
+        ],
+        "rewards": ["Skill Points x120", "Epic Equipment Box", "Poison Resistance Passive"]
+      },
+      {
+        "name": "Thunder Behemoth",
+        "difficulty": "Hard",
+        "hp": "20,000",
+        "attack": "High",
+        "special": "Thunder Strike: Deals lightning damage to target and nearby units",
+        "weaknesses": ["Magic resistance", "Spread formation"],
+        "strategy": [
+          "Keep distance between units to prevent lightning chain",
+          "Stack magic resistance to reduce damage",
+          "Healer prioritize units hit by lightning"
+        ],
+        "rewards": ["Skill Points x150", "Thunder Weapon Blueprint", "Thunder Core"]
+      },
+      {
+        "name": "Frost Queen",
+        "difficulty": "Extreme",
+        "hp": "30,000",
+        "attack": "Very High",
+        "special": "Blizzard: Full-screen freeze, greatly reduces attack speed",
+        "weaknesses": ["Fire damage", "Thaw skills"],
+        "strategy": [
+          "Prepare fire equipment and skills to counter freeze",
+          "Healer must bring thaw skills",
+          "Burst damage before blizzard to reduce HP quickly"
+        ],
+        "rewards": ["Skill Points x200", "Legendary Equipment Box", "Frost Skill Unlock"]
+      },
+      {
+        "name": "The Destroyer",
+        "difficulty": "Nightmare",
+        "hp": "100,000",
+        "attack": "Extreme",
+        "special": "Apocalypse: Randomly casts all boss skills",
+        "weaknesses": ["Perfect coordination", "Top-tier equipment"],
+        "strategy": [
+          "Requires perfect team coordination and equipment",
+          "Familiar with all boss skills and countermeasures",
+          "Maximize DPS while ensuring survival"
+        ],
+        "rewards": ["Skill Points x500", "Legendary Weapon", "Endless Mode Unlock", "Exclusive Title"]
+      }
+    ]
+  },
+  "guide": {
+    "title": "Beginner Guide",
+    "subtitle": "Get started with Tangy TD quickly",
+    "steps": [
+      {
+        "title": "Basic Controls",
+        "content": [
+          "Use WASD or mouse click to move witch Tangy",
+          "Click ground to place towers",
+          "Can move towers during combat",
+          "Click enemy to prioritize attack",
+          "Use number keys 1-4 for skills"
+        ]
+      },
+      {
+        "title": "Class Setup",
+        "content": [
+          "Beginner recommended: 2 Defenders + 2 Archers + 1 Healer",
+          "Place Defenders at front of path to attract enemies",
+          "Place Archers in safe backline positions",
+          "Position Healer to cover multiple allies",
+          "Adjust composition based on enemy types"
+        ]
+      },
+      {
+        "title": "Resource Management",
+        "content": [
+          "Defeat enemies to earn gold and skill points",
+          "Gold used to buy and upgrade towers",
+          "Skill points used to unlock skill tree nodes",
+          "Don't over-invest in single tower",
+          "Endless mode is good for farming skill points"
+        ]
+      },
+      {
+        "title": "Item Crafting",
+        "content": [
+          "Collect materials to craft items",
+          "Prioritize items matching your class",
+          "Pay attention to equipment stat synergy",
+          "Legendary items require specific materials",
+          "Can dismantle equipment to recover materials"
+        ]
+      },
+      {
+        "title": "Skill Tree Planning",
+        "content": [
+          "Focus on one branch first, don't spread thin",
+          "Choose skill path based on equipment stats",
+          "Can reset skill points to try different builds",
+          "Some powerful skills require prerequisites",
+          "Check recommended builds on guide sites"
+        ]
+      }
+    ],
+    "faq": {
+      "title": "FAQ",
+      "list": [
+        {
+          "q": "How many levels are there?",
+          "a": "Game includes 8 story levels and endless mode. Story has fixed bosses, endless scales infinitely."
+        },
+        {
+          "q": "How to get better equipment?",
+          "a": "Defeat bosses, open equipment boxes, or craft. Higher difficulty drops better quality."
+        },
+        {
+          "q": "Can skill points be reset?",
+          "a": "Yes, game provides skill reset function to reallocate all points and try different builds."
+        },
+        {
+          "q": "What are endless mode rewards?",
+          "a": "Rewards based on waves survived. Higher waves = better rewards. Also climb global leaderboards."
+        },
+        {
+          "q": "Which class is best for beginners?",
+          "a": "Defender is recommended - high forgiveness. Try Archer or Healer after getting familiar."
+        }
+      ]
+    },
+    "tips": {
+      "title": "Pro Tips",
+      "list": [
+        "Start with Defenders to attract enemies, then add DPS",
+        "Watch enemy types and adjust strategy accordingly",
+        "Save skills before boss fights for critical moments",
+        "Experiment with different equipment combinations",
+        "Join Discord to share tips with other players"
+      ]
+    }
+  },
+  "footer": {
+    "about": "Comprehensive Tangy TD guide with classes, skill trees, items, and boss strategies.",
+    "quickLinks": "Quick Links",
+    "aboutSite": "About",
+    "copyright": "© 2026 Tangy TD Guide. Game content belongs to Cakez.",
+    "madeWith": "Made with love for Tangy TD players"
+  },
+  "language": {
+    "title": "Language",
+    "en": "English",
+    "zh": "中文"
+  }
+}
