@@ -59,6 +59,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#7c3aed" />
     
+    <!-- Tailwind CSS -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
