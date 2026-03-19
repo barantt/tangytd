@@ -13,7 +13,7 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  output: "static",
+  output: "server",
   build: {
     format: "directory",
   },
